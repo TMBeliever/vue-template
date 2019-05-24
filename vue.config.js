@@ -5,6 +5,7 @@ function resolve (dir) {
 }
 
 module.exports = {
+    // runtimeCompiler: true,
     devServer: {
         proxy: {
             '/mock': {
@@ -44,12 +45,21 @@ module.exports = {
             args[0]['process.env'].BASE_URL = JSON.stringify(process.env.BASE_URL);
             return args;
         });
-
         // 修改images loader 添加svg处理
         const imagesRule = config.module.rule('images');
         imagesRule.exclude.add(resolve('src/common/icons/svg'));
         config.module
             .rule('images')
             .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/);
+    },
+    css: {
+        loaderOptions: {
+            // 给 sass-loader 传递选项
+            sass: {
+                // @/ 是 src/ 的别名
+                // 所以这里假设你有 `src/assets/css/varuables.scss` 这个文件
+                data: `@import "./src/common/css/var";`
+            }
+        }
     }
 };

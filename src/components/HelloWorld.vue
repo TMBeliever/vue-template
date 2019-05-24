@@ -1,6 +1,6 @@
 <template>
 <div class="page">
-   图标： <svg-icon icon-class="bookmark"></svg-icon>
+   图标： <svg-icon :class-name="'test'" icon-class="bookmark"></svg-icon>
 </div>
 </template>
 
@@ -31,4 +31,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.page {
+    color: $color-base;
+    .test {
+        width: 200px;
+        height: 299px;
+    }
+}
 </style>
