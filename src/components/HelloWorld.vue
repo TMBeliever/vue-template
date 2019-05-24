@@ -1,11 +1,11 @@
 <template>
 <div class="page">
    图标： <svg-icon icon-class="caiwuhesuanyewu1"></svg-icon>
-   <i class="iconfont icon-caiwuhesuanyewu1"></i>
 </div>
 </template>
 
 <script type="text/ecmascript-6">
+import test from '../api/base';
 export default {
     name: 'name',
     data () {
@@ -17,16 +17,18 @@ export default {
 
     },
     created () {
+        this._getCommonInfo();
     },
     methods: {
-
+        _getCommonInfo () {
+            test.commonInfo().then(res => {
+                console.log(res);
+                console.log(process.env.BASE_URL);
+            });
+        }
     }
 };
 </script>
 
 <style scoped lang="scss">
-    i {
-        font-size: 10px;
-        color: red;
-    }
 </style>
