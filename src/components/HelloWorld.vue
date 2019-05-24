@@ -1,6 +1,6 @@
 <template>
 <div class="page">
-   图标： <svg-icon icon-class="caiwuhesuanyewu1"></svg-icon>
+   图标： <svg-icon icon-class="bookmark"></svg-icon>
 </div>
 </template>
 
