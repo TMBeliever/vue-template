@@ -11,4 +11,5 @@ script:
   - npm run build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t banalal/template-info:latest .
+  - docker tag template-info banalal/template-info:latest
   - docker push banalal/template-info:latest
